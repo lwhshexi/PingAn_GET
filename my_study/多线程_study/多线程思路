@@ -1,0 +1,6 @@
+·主线程用来创建三个子线程
+    主线程将 ["One", "Two", "Three", "Four", "Five"] 放入队列。
+    子线程并行运行，取出数据并打印。
+    当队列中的数据全部处理完后，设置 exitFlag，子线程结束运行。
+
+·参考文档：https://cuiqingcai.com/3325.html
