@@ -36,6 +36,7 @@ from selenium import webdriver
 from selenium.webdriver.edge.service import Service
 from selenium.webdriver.edge.options import Options
 from lxml import etree
+import Ping_An_Class
 
 url = 'https://icorepnbs.pingan.com.cn/icore_pnbs/templates/dept/212/mainCtrl.html?v=1.2024.0904.416221727175734873&applicantPersonFlag=1&familyPrd=&bsDetailCode=2-3-Z-H&usageAttributeCode=01&ownershipAttributeCode=03&insuranceType=1&deptCodeText=212140201&deptCode=212140201&secondLevelDepartmentCode=212&employeeCodeText=2120007254&employeeCode=212000725254&channelCode=Z&productCombineList=&partnerWorknetPanel=&agentCode=12000228&worknetCode=&conferVal=1200022816002+32&agentNameLike=&agentCodeText=&brokerCode=&brokerName=&agentName=%E5%B9%B3%E5%AE%89%E5%88%9B%E5%B1%95%E4%BF%9D%E9%99%A9%E9%94%80%E5%94%AE%E6%9C%8D%E5%8A%A1%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8%E5%8F%B0%E5%B7%9E%E5%88%86%E5%85%AC%E5%8F%B8&conferNo=1200022816002&subConferNo=32&dealerCode=&autoInsurance=true&propertyInsurance=false&accidentInsurance=false&rateClassFlag=20&employeeName=%E5%8F%B0%E5%B7%9E%E6%9C%AC%E7%BA%A7%E5%88%9B%E5%B1%95%E6%9C%BA%E6%9E%84&saleGroupCode=21214020159&trafficProductCode=MP01000002&commercialProductCode=MP01000001&businessMode=undefined&systemId=PACZ-CORE&applyApproach='
 
@@ -50,7 +51,7 @@ browser.maximize_window()  # 最大化窗口
 browser.get(url)
 
 # 添加 cookies
-cookie_string = 'SESSION=ZDQ0ZGFkMjYtYjBmMy00YTQzLTk2YzUtOTk1YTM5ZGQ3MzU3; PA_GREY=TZAAA-00003; BIGipServerPOOL_PACLOUD_PRDR20221226230997=1921230110.5162.0000; us=stable_348; routeopr=ef205d981392b2492ff69580a428be47; BIGipServerPOOL_PACLOUD_PRDR20230106232593=1082166231.5162.0000; v1LIHNTx4qTOO=5f7aHxy6JuyiB.a_8hJ0e__.5Ti52W6C28LPRx4zGx695kiBAj9i.sExb5gfKbEemhiy.gKsJDQ9uPo0aYL0tbq; BIGipServerPOOL_PACLOUD_PRDR2019112805992=1243783639.33420.0000; USER_REDIS_COOKIE=VFpBQUEtMDAwMDMxNzI3MzQzODYyNjI1LTU4NzE2MDcyN18xNzI3MzQzOTA1NTk2; v1LIHNTx4qTOP=RY6JTzsIgbItWS4CW9jZKIMVJQKfawutLYPEfEgM4NxoWASNTKddHuLT8Yvz80c1W0jIAJaXmUp2L7UBS2VJ674PxLnSJtEgPEVZGEUOE5mrNya0f5xSc6G4dwU_48Nvv2tZbEbP4JxeG0SigmB1KBd7htT6_aCddVzXU3dULrWBfQBIZ.8J1YfnEAraxaaC2wa3aToYKD0u_txN_.QISVTGU0fTOXmgHQtmA3bo_M8HWGSAfPwyeOK9n17pSo4SLNYL0xbbT_lFCB0aJM4AWLMSp8MChjeRYHiLzuVsIPrLUaLg5HLDmu1GT5PannwKVG4BHic_7DZ8iCld0DW_AH_JIzYPP1krq_.xUUIrmYa'
+cookie_string = 'enable_undefined=true; SESSION=OTgxMzBjMWItMzg0Yy00YzViLThhYjktMzVmYjQ1M2VlZjhk; us=stable_562; routeopr=b9fb5b58505ec2342db5a7078db52e68; BIGipServerPOOL_PACLOUD_PRDR20230106232593=914459607.5162.0000; BIGipServerPOOL_PACLOUD_PRDR2019112805992=454629804.33420.0000; PA_GREY=TZAAA-00003; v1LIHNTx4qTOO=5uIbbM47ZbYqgsVwZvd.Z1DSI8rlmJbX8oIfrp2_Q_MPHTgtJcZtf38O88xfCRch5e.k6.mabhU8QaNXxo7fOaA; USER_REDIS_COOKIE=VFpBQUEtMDAwMDMxNzI4Mjg5MDUxODgyLTY5NzYwNjQzM18xNzI4Mjg5MDkyMjU4; v1LIHNTx4qTOP=GOIt7lMHiwcYMN_PAP9HEGErxZrAAdx5DciuWzATyQa5CB7kHjgZlVF7S2fqf2n4_UNt32CdeSz7eZuZLNE_F2KMOZB4M9aF5_xquRShWhVGiIqBu_ZDBI6_pF6HPqlBSdKqEUiGKOkMT_8xFiUJMDbwghONXnsrW2sPk9HEI6xIOTzRay6Fvt4EAIIefdr112WqZEtr6sBqpNX1mllPbCY2wc8SLjSfAOuEDqsE.09HYWIbYvzeMQgjH9FI5PRFS32Xe9X7r_no6JcFnyqXwryvYe1tE.5kPESP_1_B75l47_3aGGNUMlERSaqCIYrJiwQ6cZLQcaiBMrDW1jUNaYePCFnnkzpEODON0bIJ9jE'
 
 # 将 cookie 字符串解析为字典列表
 cookies = {}
