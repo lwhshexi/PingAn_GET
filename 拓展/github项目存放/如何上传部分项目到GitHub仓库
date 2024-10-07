@@ -1,0 +1,13 @@
+# 添加文件到Git跟踪
+git add path/to/your/file
+
+# 提交更改到本地仓库
+git commit -m "Your commit message"
+
+# 推送到远程仓库
+git push origin your-branch-name
+
+
+替换path/to/your/file为你想要添加的文件路径，
+your-branch-name为你想要推送的分支名称。
+如果是推送到默认分支（如master或main），则分支名称可以省略。
