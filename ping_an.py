@@ -1,5 +1,7 @@
 import subprocess
 import time
+
+from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.edge.options import Options
 from selenium.common.exceptions import NoSuchElementException, TimeoutException
@@ -9,6 +11,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 import threading
 import Ping_An_Class
+
 message = None
 
 
@@ -26,9 +29,8 @@ def init():
     options.add_experimental_option("debuggerAddress", "127.0.0.1:9223")
     driver = webdriver.Edge(options=options)
 
-
     # 添加 cookies
-    cookie_string = 'SESSION=NmM4MDVhZjAtMGE5Ny00YjY1LThmYTUtM2U5ZGVkMDFmZThl; PA_GREY=TZAAA-00001; us=stable_495; routeopr=cca8617c0c43c123e0c300de4135f0fa; BIGipServerPOOL_PACLOUD_PRDR20230106232593=2155908055.5162.0000; v1LIHNTx4qTOO=59gw35J.d6jAoV_M5ReeEPWTjAuT4kzvR5kE8dkkOnqMz.7Ny8KRz.fgiX_FAf1IIe8ocD1Dpp2vcjY4wz7iGbq; BIGipServerPOOL_PACLOUD_PRDR2019112805992=1227006423.33420.0000; USER_REDIS_COOKIE=VFpBQUEtMDAwMDExNzI4Mjg3Njk4NjE5Nzk4MDEzNTY2XzE3MjgyODg4MjE1Mzg%3D; v1LIHNTx4qTOP=iTXPUbCQEQWtjungASwqpTm6HY7uUhlz8SbqgX9b2V279h.qUZNIRrpSZjYVPbLDwpgQi98DTbKYCxBO1koaPR3DiAW6kNweRVAvB7pM13pneBSZMdHKduxIigvuQJ_L79KzYYq2NVws.LhuWXMsjhICh_hutfCy9qnQGG80QsnUkHEKPIdmSlQI8yzMU6tpSSgszYXC8dIE5nUcJfxwFSFQH34FuzkooeG2aNu76ujjee4FQbx6719qTEAp1R1k_jmxbDqhVtygvdGouqxnLUceJjOEX5P2iSrbmqn5DN_9vjJqqndh0lG74LfLuUBOKgZTN2XaHxDhIsBJ0bUvJ8h6tQwczSVXphrrwpgB2r2vLl5t87JemYrkR6jImIHE78yZvxzw3ReDtFnNdpigrOcqvM2uBcFa_qhLvmc.AkL'
+    cookie_string = 'enable_undefined=true; SESSION=ZmQ0OGY0NDEtMjI0MS00MDEyLWJlZmMtODYwYzc0NThiYTZi; us=stable_562; BIGipServerPOOL_PACLOUD_PRDR2019112805992=454629804.33420.0000; PA_GREY=TZAAA-00003; routeopr=b9fb5b58505ec2342db5a7078db52e68; BIGipServerPOOL_PACLOUD_PRDR20230106232593=1082166231.5162.0000; v1LIHNTx4qTOO=5gqjmflGfwS1mmd_HVrqkRvmloLz9XqHQlobmCTHZqpFRWKo_kJGyR7PLOhJUnvJUpquWU8vKAkTaEjO2Fu_b3q; USER_REDIS_COOKIE=VFpBQUEtMDAwMDMxNzI4Mjk5ODQ2Mzg4LTEyOTE2MDQ3OTNfMTcyODI5OTg2NjE1MA%3D%3D; v1LIHNTx4qTOP=ckIcHYRk2S7Rd3titeBDniN1mfEhwnunBEjsaTuV5ftNC5YLWjyb2EYjRbSsLsqg7EHmt3r86En.gcG8zUl0SmgixWLAklDiBbaSlOyPOWrjnYkG4neFhpWcM_xFyZhndIWOps3JS7g6NXzUblX2scXbb7mu7n.n0hc5aC_vdTnnWd3Og0bL9ZSgTr1v99ryCG9GLE9d4kfe.d_fAqkfv1c4Op3nG9z9W1H65id8MZHXv4kDYpovYyre5wBrbdzWBK7wO0IUiRAJ2gOAhE5ltNfvl6ttvW7D.i.8QV9syY68zlGl3bYQAo98kzUWoS3fz5n2Zt1.FmXKGqXwbgo8zqJq52QpdelNR8WpEI8o9y3'
 
     # 将 cookie_string 按 ';' 分割为列表
     cookie_list = cookie_string.split(";")
@@ -42,9 +44,8 @@ def init():
             driver.add_cookie({'name': name, 'value': value})
 
     driver.refresh()
-
-    time.sleep(1000)
     return driver
+
 
 """
 cookie添加方式1
@@ -72,10 +73,57 @@ Name: SESSION, Value: NDA0YTAxNmQtNjM2MS00NjE1LTljODAtN2YwOTdiNzcwYjZj
         browser_name.add_cookie(cookie)
 """  # cookie添加方式2
 
+# init()
+
 # 创建 WebDriver 实例连接到 Edge
 options = webdriver.EdgeOptions()
 options.add_experimental_option("debuggerAddress", "127.0.0.1:9223")
 driver = webdriver.Edge(options=options)
 
-a = Ping_An_Class.ClickPage('龚为红', 'LGXCE4CC7P0694582', driver)
-a.input_owner_driver_idno()
+
+click_page_instance = Ping_An_Class.ClickPage('吴奇杰', 'LJ1E6A3UXPG575390', driver)
+#
+# click_page_instance.input_owner_driver_name()
+# click_page_instance.input_owner_driver_idno()
+# click_page_instance.input_owner_driver_telephone()
+# click_page_instance.select_owner_driver_province()
+# click_page_instance.select_owner_driver_city()
+# click_page_instance.select_owner_driver_county()
+# click_page_instance.input_vehicle_license_code()
+# click_page_instance.input_engine_number()
+# click_page_instance.input_vehicle_frame_number()
+#
+# time.sleep(1)
+# click_page_instance.input_first_registration_date('2023-09-23')
+# click_page_instance.click_vehicle_type_validation_button()
+# click_page_instance.click_syx_checkbox()
+click_page_instance.click_quote_button()
+
+# 等待 iframe 出现
+WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, 'doalogBox')))
+
+# 切换到 iframe
+driver.switch_to.frame('doalogBox')
+
+td_elements = WebDriverWait(driver, 10).until(
+    EC.presence_of_all_elements_located((By.XPATH, '/html/body/div[2]/fieldset[1]/form/table[1]/tbody/tr[2]/td[5]'))
+)
+name = td_elements[0].text
+print(name)
+
+td_elements = WebDriverWait(driver, 10).until(
+    EC.presence_of_all_elements_located((By.XPATH, '/html/body/div[2]/fieldset[1]/form/table[1]/tbody/tr[2]/td[12]'))
+)
+time_id = td_elements[0].text
+
+print(time_id)
+
+close_button = WebDriverWait(driver, 10).until(
+    EC.element_to_be_clickable((By.XPATH, '/html/body/div[18]/p/span[2]/a[2]'))
+)
+close_button.click()  # 点击关闭按钮
+
+# 退出 iframe
+driver.switch_to.default_content()
+
+
