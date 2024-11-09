@@ -1,0 +1,5 @@
+查看端口：8888有没有被打开
+netstat -ano | findstr :8888
+
+关闭端口
+taskkill /PID 22168 /F

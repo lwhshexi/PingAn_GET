@@ -1,0 +1,10 @@
+配置连接：https://blog.csdn.net/weixin_43612602/article/details/135287720
+1. Charles客户端下载
+官网地址：https://www.charlesproxy.com/download/
+
+2. 下载安装完成后激活
+激活网站地址：https://www.zzzmode.com/mytools/charles/
+
+3. 打开安装好的Charles，菜单栏 Help->Register Charles 弹出注册的窗口填入Registered Name和生成的license key，点击 Register。
+
+4. 配置代理地址：https://blog.csdn.net/qq_22855077/article/details/112387516#:~:text=%E4%BB%A5%E4%B8%8B%E6%98%AF%20Charles%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86%20%E7%9A%84%E6%AD%A5%E9%AA%A4%EF%BC%9A%201.%20%E6%89%93%E5%BC%80%20Charles%EF%BC%8C%E8%BF%9B%E5%85%A5%20Proxy%20%E8%8F%9C%E5%8D%95%EF%BC%8C%E9%80%89%E6%8B%A9,SSLProxy%20%E4%B8%A4%E4%B8%AA%E9%80%89%E9%A1%B9%E5%8D%A1%E3%80%82%203.%20%E5%A6%82%E6%9E%9C%E9%9C%80%E8%A6%81%E7%9B%91%E6%8E%A7HTTP%E8%AF%B7%E6%B1%82%EF%BC%8C%E9%9C%80%E8%A6%81%E5%9C%A8HTTP%20Proxy%20%E9%80%89%E9%A1%B9%E5%8D%A1%E4%B8%AD%20%E8%AE%BE%E7%BD%AE%20%E7%AB%AF%E5%8F%A3%E5%8F%B7%EF%BC%8C%E9%BB%98%E8%AE%A4%E4%B8%BA8888%E3%80%82
